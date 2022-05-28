@@ -1,0 +1,3 @@
+librerias instaladas  
+sqlite3
+tkinter
