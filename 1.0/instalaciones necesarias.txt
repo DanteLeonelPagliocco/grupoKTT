@@ -1,3 +1,5 @@
-librerias instaladas  
+librerias instaladas necesarias  
 sqlite3
 tkinter
+tkintermapview
+pyperclip
