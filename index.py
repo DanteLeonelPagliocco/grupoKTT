@@ -75,9 +75,9 @@ class Menu ():
                 self.database_conexion(query,parameters)
                 self.lista_de_entregas()
               else:
-                   print("error el dni de la persona ingresada es erronea")
+                   print("Error el dni de la persona ingresada es erronea")
             else : 
-                print("error pedido repetido")
+                print("Error pedido repetido")
             
           else:
                 print("no se puede ingresar datos vacios")
