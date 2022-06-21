@@ -47,10 +47,6 @@ class Menu ():
           self.tree.heading('#3',text="direccion",anchor=CENTER)
           self.tree.heading('#4',text="dni",anchor=CENTER)
           self.lista_de_entregas()
-    def lista_de_entregas(self):
-        records= self.tree.get_children()
-        for element in records:
-            self.tree.delete(element)
     def database_conexion(self,query,parameters=()):
         with sqlite3.connect(self.db_name) as conn:
     
@@ -59,8 +55,13 @@ class Menu ():
           result=cursor.execute(query,parameters)
           conn.commit()
           return result
+    def lista_de_entregas(self):
+        records= self.tree.get_children()
+        for element in records:
+            self.tree.delete(element)
 
-
+    def listas(self):
+        
 
         rows = self.database_conexion("SELECT * FROM datos ORDER BY id DESC")
         
