@@ -60,7 +60,8 @@ class Menu ():
         for element in records:
             self.tree.delete(element)
 
-
+    def listas(self):
+        
 
         rows = self.database_conexion("SELECT * FROM datos ORDER BY id DESC")
         
@@ -75,9 +76,9 @@ class Menu ():
                 self.database_conexion(query,parameters)
                 self.lista_de_entregas()
               else:
-                   print("error el dni de la persona ingresada es erronea")
+                   print("Error!! El dni de la persona ingresada no es correcta")
             else : 
-                print("error pedido repetido")
+                print("Error! El pedido no se puede repetir")
             
           else:
                 print("no se puede ingresar datos vacios")
