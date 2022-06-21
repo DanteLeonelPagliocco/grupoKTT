@@ -47,6 +47,10 @@ class Menu ():
           self.tree.heading('#3',text="direccion",anchor=CENTER)
           self.tree.heading('#4',text="dni",anchor=CENTER)
           self.lista_de_entregas()
+    def lista_de_entregas(self):
+        records= self.tree.get_children()
+        for element in records:
+            self.tree.delete(element)
     def database_conexion(self,query,parameters=()):
         with sqlite3.connect(self.db_name) as conn:
     
@@ -55,10 +59,6 @@ class Menu ():
           result=cursor.execute(query,parameters)
           conn.commit()
           return result
-    def lista_de_entregas(self):
-        records= self.tree.get_children()
-        for element in records:
-            self.tree.delete(element)
 
 
 
@@ -75,9 +75,9 @@ class Menu ():
                 self.database_conexion(query,parameters)
                 self.lista_de_entregas()
               else:
-                   print("Error el dni de la persona ingresada es erronea")
+                   print("Error!! El dni de la persona ingresada no es correcta")
             else : 
-                print("Error pedido repetido")
+                print("Error! El pedido no se puede repetir")
             
           else:
                 print("no se puede ingresar datos vacios")
