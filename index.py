@@ -6,7 +6,9 @@ from tkinter import ttk
 
 
 
-
+error = "Error!! El dni de la persona ingresada no es correcta"
+error2 = "Error! El pedido no se puede repetir"
+error3= "no se puede ingresar datos vacios"
 class Menu ():  
     db_name='database.db'
     def __init__(self,window):
@@ -55,6 +57,9 @@ class Menu ():
           result=cursor.execute(query,parameters)
           conn.commit()
           return result
+
+
+
     def lista_de_entregas(self):
         records= self.tree.get_children()
         for element in records:
@@ -67,7 +72,8 @@ class Menu ():
         
         for row in rows:
                self.tree.insert('',0,text=row[0],values=(row[1],row[2],row[3],row[4]))    
-              
+
+            
     def agregarPedido(self):
           if(self.validarPedidoVacio()):
             if (self.pedidoRepetido()==FALSE):
@@ -77,12 +83,12 @@ class Menu ():
                 self.database_conexion(query,parameters)
                 self.lista_de_entregas()
               else:
-                   print("Error!! El dni de la persona ingresada no es correcta")
+                   print(error)
             else : 
-                print("Error! El pedido no se puede repetir")
+                print(error2)
             
           else:
-                print("no se puede ingresar datos vacios")
+                print(error3)
                 self.lista_de_entregas()
     def validarPedidoVacio(self):
         return len(self.nombre.get()) != 0 and len(self.apellido.get())!= 0 and len(self.direccion.get())!= 0 and len(self.dni.get())!= 0
@@ -110,6 +116,7 @@ a = 1
 b = 2
 
 if a > b:
-    print(" a es mayor que b")
+    print(" Se agrego correctamente")
 else:
-    print("b es mayor que a")
+    print(" No se agrego correctamente")
+c = "Insertado"
