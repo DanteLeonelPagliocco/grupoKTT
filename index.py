@@ -66,7 +66,8 @@ class Menu ():
         rows = self.database_conexion("SELECT * FROM datos ORDER BY id DESC")
         
         for row in rows:
-               self.tree.insert('',0,text=row[0],values=(row[1],row[2],row[3],row[4]))           
+               self.tree.insert('',0,text=row[0],values=(row[1],row[2],row[3],row[4]))    
+              
     def agregarPedido(self):
           if(self.validarPedidoVacio()):
             if (self.pedidoRepetido()==FALSE):
@@ -99,9 +100,16 @@ class Menu ():
         return validacion
 
 
+
 if __name__ == '__main__':
     window = Tk()
     application= Menu(window)
     window.mainloop()
 
+a = 1
+b = 2
 
+if a > b:
+    print(" a es mayor que b")
+else:
+    print("b es mayor que a")
